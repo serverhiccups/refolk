@@ -15,7 +15,7 @@ export class SearchView {
 				<input type="search" id="searchInput" name="searchInput" value={this.controller.searchState} oninput={(e) => {
 					this.controller.updateSearchState(e.target.value);
 				}}/>
-				<button onclick={(e) => this.controller.search()}>search</button>
+				<input type="submit" name="searchSubmit" value="Search" onclick={(e) => this.controller.search()}/>
 			</div>
 		)
 	}

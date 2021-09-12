@@ -4,6 +4,8 @@ import { Controller } from "../controllers/Controller";
 
 import { ResultsList } from "../models/ResultsList";
 
+import { WordView } from "./WordView";
+
 export class ResultsListView {
 	controller: Controller;
 	results: ResultsList;
@@ -16,8 +18,10 @@ export class ResultsListView {
 	view() {
 		return (
 			<div id="results">
-				{this.results.result.map((r) => {
-						return (<p>{r.key + " - " + r.translation[0]}</p>);
+				{this.results.result.map((r, i) => {
+						return (
+							<WordView controller={this.controller} id={i} word={r}/>
+						)
 					})}
 			</div>
 		)

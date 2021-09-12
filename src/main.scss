@@ -1,0 +1,15 @@
+.word {
+  border: solid black 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.word-translations {
+	display: flex;
+	flex-direction: column;
+}
+
+.word-definitions {
+	display: flex;
+	flex-direction: column;
+}
