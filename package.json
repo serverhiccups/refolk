@@ -1,0 +1,31 @@
+{
+  "name": "refolk",
+  "version": "0.0.1",
+  "description": "A more modern interface to the excellent Folket's Lexicon",
+  "main": "index.js",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverhiccups/refolk.git"
+  },
+  "author": "serverhiccups",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/serverhiccups/refolk/issues"
+  },
+  "homepage": "https://github.com/serverhiccups/refolk#readme",
+  "dependencies": {
+    "mithril": "^2.0.4",
+    "parcel": "^2.0.0-rc.0",
+    "typesense": "^0.14.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "@types/mithril": "^2.0.8"
+  }
+}
