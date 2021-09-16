@@ -7,6 +7,9 @@ import { ResultsList } from "./models/ResultsList";
 
 import { SearchView } from "./views/SearchView";
 import { ResultsListView } from "./views/ResultsListView";
+import { NavBar } from "./views/NavBar";
+
+import { About } from "./about";
 
 class App {
 	client: any;
@@ -28,6 +31,7 @@ class App {
 	view() {
 		return (
 			<div id="app">
+				<NavBar/>
 				<div id="dictionary">
 					<SearchView controller={this.controller}/>
 					<ResultsListView controller={this.controller} results={this.results}/>
@@ -43,4 +47,9 @@ let a = new App({
 	protocol: "http"
 }, "123456");
 
-m.mount(document.body, a);
+let c = new About();
+
+m.route(document.body, "/", {
+	"/": a,
+	"/about": c
+})

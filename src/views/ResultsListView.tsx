@@ -20,7 +20,7 @@ export class ResultsListView {
 			<div id="results">
 				{this.results.result.map((r, i) => {
 						return (
-							<WordView controller={this.controller} id={i} word={r}/>
+							<WordView key={r.id} controller={this.controller} id={i} word={r}/>
 						)
 					})}
 			</div>

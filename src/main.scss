@@ -1,15 +1,101 @@
+@import 'normalize.css';
+
+$column-width: 40rem;
+$roundness: .25rem;
+
+$secondary-colour: #eee;
+$word-colour: #f3f3f3;
+
+@mixin body-font {
+	font-family: 'EB Garamond', serif;
+	font-weight: 400;
+}
+
+@mixin display-font {
+	font-family: 'Balsamiq Sans', cursive;
+	font-weight: 400;
+}
+
+#app {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	@include body-font();
+}
+
+#dictionary {
+	width: $column-width;
+}
+
 .word {
-  border: solid black 2px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2rem auto;
+  grid-template-rows: 1.5rem auto;
+  grid-template-areas: "icon key" "main main";
+
+  border: solid black 1px;
+  border-radius: $roundness;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+  padding: .25rem;
+
+  background: $word-colour;
 }
 
-.word-translations {
+.word-icon {
+	grid-area: icon;
+	font-size: 1.5em;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-.word-definitions {
-	display: flex;
-	flex-direction: column;
+.word-key {
+	grid-area: key;
 }
+
+.worm-main {
+	grid-area: main;
+}
+
+nav {
+	width: 100vw;
+	height: 2rem;
+	position: sticky;
+	align-self: flex-start;
+	top: 0;
+	background: $secondary-colour;
+	@include display-font();
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	& * {
+		margin-left: 1rem;
+	}
+}
+
+#search {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+#search-input {
+	flex-grow: 1;
+}
+
+#search-submit {
+	flex-grow: 0;
+}
+
+.def-word {
+	color: black;
+	& .separator {
+		color: #666;
+	}
+}
+
