@@ -5,7 +5,7 @@ export class BottomBar {
     view() {
         return (
             <footer>
-                <span>Made with &lt;3 in Sweden</span>
+                <span>Made with ❤️ in Sweden</span>
             </footer>
         )
     }

@@ -41,7 +41,9 @@ export class WordView {
 				<div class="word-icon">{this.word.lang == "en" ? "🇬🇧" : "🇸🇪"}</div>
 				<div class="word-key">
 					<TypeIcon types={this.word.type}/>
-					<span>{this.word.key + " — " }</span>{this.prettifyList(this.topDefinition(this.word))}
+					<span class="quick-info">
+						<span>{this.word.key + " — " }{this.prettifyList(this.topDefinition(this.word))}</span><span class="comment">{this.word.comment ? `[${this.word.comment}]` : ""}</span>
+					</span>
 				</div>
 				<div class="word-main">
 					{this.word.definition?.length > 0 &&
@@ -62,14 +64,20 @@ export class WordView {
 							</ul>
 						</div>
 					}
+					{!!this.word.phonetic && (
+						<div class="word-phonetic">
+							<span class="title">Phonetic&nbsp;</span>
+							<span>[{this.word.phonetic}]</span>
+						</div>
+					)}
 				</div>
 				{this.word.translation?.length > 0 &&
 					<div class="word-translations">
-						<span>Translations</span>
+						<span class="title">Translations</span>
 						<ul>
-						{this.word.translation.map((t) => {
+						{this.word.translation.map((t, i) => {
 							return (
-								<li>{t}</li>
+								<li><span>{t}</span><span>&nbsp;{this.word.translationComment[i] ? "[" + this.word.translationComment[i] + "]" : ""}</span></li>
 							)
 						})}
 						</ul>

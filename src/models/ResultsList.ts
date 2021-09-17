@@ -1,4 +1,5 @@
 import m from "mithril";
+import info from "../word-type-info.json"
 
 import { SearchClient as TypesenseSearchClient } from "typesense";
 
@@ -7,16 +8,45 @@ export class ResultsList {
 
 	result: Array<any>;
 
+	filterNames: Set<string>;
+
+	typeinfo: object;
+
 	constructor(client: TypesenseSearchClient) {
 		this.client = client;
 		this.result = [];
+		this.filterNames = new Set();
+		this.typeinfo = new Object(info);
+		for (const v of Object.values(this.typeinfo)) {
+			//@ts-ignore
+			this.filterNames.add("#" + v.shortcode);
+		}
 	}
 
 	async search(term: string) {
+		let sTerm = term.substring(0, 50).trim();
+		let f: Set<string> = new Set();
+		sTerm = sTerm.split(" ").map((m: string) => {
+			if(this.filterNames.has(m)) {
+				console.log(m);
+				f.add(m.slice(1));
+				return ""
+			}
+			return m;
+		}).join("").trim();
+		let realParameterNames = [];
+		//@ts-ignore
+		for (const [k, v] of Object.entries(this.typeinfo)) {
+			if(f.has(v.shortcode)) {
+				realParameterNames.push(k);
+			}
+		}
 		let searchParameters = {
-			'q': term,
+			'q': sTerm,
 			'query_by': 'key, translation, definition',
-			'limit_hits': 50
+			'limit_hits': 50,
+			'per_page': 50,
+			'filter_by': realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": undefined
 		}
 		this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
 		m.redraw();

@@ -1,8 +1,7 @@
 {
   "name": "refolk",
   "version": "0.0.1",
-  "description": "A more modern interface to the excellent Folket's Lexicon",
-  "main": "index.js",
+  "description": "A more modern interface to the excellent Folket's Lexikon",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",

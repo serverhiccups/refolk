@@ -26,14 +26,14 @@ $word-colour: #f3f3f3;
 	@include body-font();
 }
 
-#dictionary {
+#app > div {
 	width: $column-width;
 }
 
 .word {
   display: grid;
   grid-template-columns: 2rem 50% 1fr;
-  grid-template-rows: 1.5rem 1fr;
+  grid-template-rows: minmax(1.5rem, auto) 1fr;
   grid-template-areas: "icon key key" "main main trans";
 
   border: solid #333 1px;
@@ -62,7 +62,26 @@ $word-colour: #f3f3f3;
 	background: $word-colour;
 	padding-top: .25rem;
 	padding-bottom: .25rem;
-	// font-size: 1.25em;
+	padding-right: .25rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	& .quick-info {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		justify-content: space-between;
+		& > * {
+			display: block;
+		}
+		& > .comment {
+			font-style: italic;
+		}
+	}
+	& > .comment {
+		justify-self: flex-end;
+	}
 }
 
 .word-main {
@@ -77,6 +96,13 @@ $word-colour: #f3f3f3;
 	padding: .25rem;
 	& ul {
 		padding-left: 1rem;
+	}
+}
+
+.word-phonetic {
+	padding-top: .25rem;
+	& .title {
+		font-weight: 700;
 	}
 }
 
@@ -120,12 +146,16 @@ nav {
 }
 
 .word-translations {
-	& span {
+	& .title {
 		font-weight: 700;
 	}
 	& ul {
 		margin-top: .25rem;
 		margin-bottom: .25rem;
+		& > li > span:nth-child(2) {
+			width: 100%;
+			font-style: italic;
+		}
 	}
 }
 
@@ -155,4 +185,23 @@ nav {
 			}
 		}
 	}
+}
+
+#dictionary-reference {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	flex-direction: row;
+	row-gap: .25rem;
+	margin-top: .5rem;
+	& > span {
+		width: 10rem;
+	}
+}
+
+code {
+	background-color: $secondary-colour;
+	padding-left: .125rem;
+	padding-right: .125rem;
+	border-radius: .125rem;
 }

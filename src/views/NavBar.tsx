@@ -5,7 +5,11 @@ export class NavBar {
     view() {
         return (
             <nav>
-                <a href="#!/">Refolk!</a>
+                {m(m.route.Link, {
+                    selector: 'a',
+                    options: {replace: true},
+                    href: "/search/"
+                }, "Refolk!")}
                 <a href="#!/about">about</a>
             </nav>
         )

@@ -4,6 +4,8 @@
 		"jsxFactory": "m",
 		"isolatedModules": true,
 		"esModuleInterop": true,
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"target": "ES6",
+		"moduleResolution": "node"
 	}
 }

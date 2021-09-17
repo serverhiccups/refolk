@@ -1,3 +1,5 @@
+import m from "mithril";
+
 import { ResultsList } from "../models/ResultsList";
 
 export class Controller {
@@ -10,7 +12,9 @@ export class Controller {
 	}
 
 	updateSearchState(state) {
+		if(state == this.searchState) return;
 		this.searchState = state;
+		m.route.set("/search/:search", {search: this.searchState});
 	}
 
 	async search() {
@@ -19,7 +23,7 @@ export class Controller {
 			this.results.clear();
 			return
 		}
-		this.updateSearchState("");
+		// this.updateSearchState("");
 		await this.results.search(term);
 	}
 

@@ -29,6 +29,14 @@ class App {
 		this.controller = new Controller(this.results);
 	}
 
+	oninit(props) {
+		if(m.route.param()?.search) {
+			this.controller.updateSearchState(m.route.param().search);
+			this.controller.search();
+			return;
+		} 
+	}
+
 	view() {
 		return (
 			<div id="app">
@@ -51,7 +59,8 @@ let a = new App({
 
 let c = new About();
 
-m.route(document.body, "/", {
-	"/": a,
+m.route(document.body, "/search", {
+	"/search": a,
+	"/search/:search": a,
 	"/about": c
 })
