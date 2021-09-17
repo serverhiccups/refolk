@@ -1,13 +1,13 @@
 import m from "mithril";
 
-import Typesense from "typesense";
+import { SearchClient as TypesenseSearchClient } from "typesense";
 
 export class ResultsList {
-	client: Typesense.Client;
+	client: TypesenseSearchClient;
 
-	result: any;
+	result: Array<any>;
 
-	constructor(client: Typesense.Client) {
+	constructor(client: TypesenseSearchClient) {
 		this.client = client;
 		this.result = [];
 	}
@@ -20,6 +20,11 @@ export class ResultsList {
 		}
 		this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
 		m.redraw();
+	}
+
+	async clear() {
+		this.result = []
+		m.redraw()
 	}
 
 	parseResults(res) {

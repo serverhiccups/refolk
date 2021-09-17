@@ -1,0 +1,86 @@
+{
+   "pp": {
+      "shortcode": "P",
+      "name": "Preposition"
+   },
+   "nn": {
+      "shortcode": "N",
+      "name": "Noun"
+   },
+   "ab": {
+      "shortcode": "Av",
+      "name": "Adverb"
+   },
+   "jj": {
+      "shortcode": "A",
+      "name": "Adjective"
+   },
+   "abbrev": {
+      "shortcode": "Ab",
+      "name": "Abbreviation"
+   },
+   "pn": {
+      "shortcode": "Pr",
+      "name": "Pronoun"
+   },
+   "vb": {
+      "shortcode": "V",
+      "name": "Verb"
+   },
+   "in": {
+      "shortcode": "I",
+      "name": "Interjection"
+   },
+   "rg": {
+      "shortcode": "#",
+      "name": "Number"
+   },
+   "prefix": {
+      "shortcode": "Pf",
+      "name": "Prefix"
+   },
+   "kn": {
+      "shortcode": "Cj",
+      "name": "Conjunction"
+   },
+   "ie": {
+      "shortcode": "Im",
+      "name": "Infinitive Marker"
+   },
+   "article": {
+      "shortcode": "Ar",
+      "name": "Article"
+   },
+   "pm": {
+      "shortcode": "Pn",
+      "name": "Proper Noun"
+   },
+   "suffix": {
+      "shortcode": "Sf",
+      "name": "Suffix"
+   },
+   "hp": {
+      "shortcode": "rP",
+      "name": "Relative Pronoun"
+   },
+   "ps": {
+      "shortcode": "Ps",
+      "name": "Posessive"
+   },
+   "sn": {
+      "shortcode": "Sj",
+      "name": "Subjunction"
+   },
+   "pc": {
+      "shortcode": "Pp",
+      "name": "Participle"
+   },
+   "hjälpverb": {
+      "shortcode": "H",
+      "name": "Helper Verb"
+   },
+   "latin": {
+      "shortcode": "L",
+      "name": "Latin"
+   }
+}

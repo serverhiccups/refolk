@@ -1,0 +1,29 @@
+.type-icons {
+    & > * {
+        min-width: 1rem;
+        display: inline-block;
+        border-radius: .25rem;
+        padding-left: .25rem;
+        padding-right: .25rem;
+        text-align: center;
+        margin-right: .25rem;
+        background: black;
+        color: white;
+    }
+    .N {
+        background: #ec1010;
+        color: white;
+    }
+    .V {
+        background: rgb(16, 119, 253);
+        color: white;
+    }
+    .A {
+        background: rgb(15, 189, 15);
+        color: white;
+    }
+    .I {
+        background: rgb(238, 19, 103);
+        color: white;
+    }
+}

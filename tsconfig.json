@@ -3,6 +3,7 @@
 		"jsx": "react",
 		"jsxFactory": "m",
 		"isolatedModules": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"resolveJsonModule": true
 	}
 }

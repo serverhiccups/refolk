@@ -15,7 +15,10 @@ export class Controller {
 
 	async search() {
 		let term = this.searchState;
-		if(term == "") return;
+		if(term == "") {
+			this.results.clear();
+			return
+		}
 		this.updateSearchState("");
 		await this.results.search(term);
 	}

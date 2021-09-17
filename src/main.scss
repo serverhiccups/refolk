@@ -1,4 +1,5 @@
 @import 'normalize.css';
+@import 'icons.scss';
 
 $column-width: 40rem;
 $roundness: .25rem;
@@ -7,7 +8,7 @@ $secondary-colour: #eee;
 $word-colour: #f3f3f3;
 
 @mixin body-font {
-	font-family: 'EB Garamond', serif;
+	font-family: 'Rubik', serif;
 	font-weight: 400;
 }
 
@@ -18,6 +19,7 @@ $word-colour: #f3f3f3;
 
 #app {
 	width: 100vw;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -30,17 +32,17 @@ $word-colour: #f3f3f3;
 
 .word {
   display: grid;
-  grid-template-columns: 2rem auto;
-  grid-template-rows: 1.5rem auto;
-  grid-template-areas: "icon key" "main main";
+  grid-template-columns: 2rem 50% 1fr;
+  grid-template-rows: 1.5rem 1fr;
+  grid-template-areas: "icon key key" "main main trans";
 
-  border: solid black 1px;
+  border: solid #333 1px;
   border-radius: $roundness;
   margin-top: .75rem;
   margin-bottom: .75rem;
-  padding: .25rem;
+//   padding: .25rem;
+	overflow: hidden;
 
-  background: $word-colour;
 }
 
 .word-icon {
@@ -50,14 +52,32 @@ $word-colour: #f3f3f3;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	background: $word-colour;
+	padding-top: .25rem;
+	padding-bottom: .25rem;
 }
 
 .word-key {
 	grid-area: key;
+	background: $word-colour;
+	padding-top: .25rem;
+	padding-bottom: .25rem;
+	// font-size: 1.25em;
 }
 
-.worm-main {
+.word-main {
 	grid-area: main;
+	background-color: #f8f8f8;
+	padding: .25rem;
+}
+
+.word-translations {
+	grid-area: trans;
+	background-color: #f8f8f8;
+	padding: .25rem;
+	& ul {
+		padding-left: 1rem;
+	}
 }
 
 nav {
@@ -99,3 +119,40 @@ nav {
 	}
 }
 
+.word-translations {
+	& span {
+		font-weight: 700;
+	}
+	& ul {
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+	}
+}
+
+.word-definition {
+	& .title {
+		font-weight: 700;
+	}
+	& ul {
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+		padding: 0;
+		margin-left: 0;
+		margin-right: 0;
+		list-style: none;
+		& li.swe-bullet, & li.eng-bullet  {
+			padding-left: 1rem;
+			text-indent: -0.75rem;
+		}
+		& li.swe-bullet {
+			&::before {
+				content: '🇸🇪\00a0';
+			}
+		}
+		& li.eng-bullet {
+			&::before {
+				content: '🇬🇧\00a0';
+			}
+		}
+	}
+}

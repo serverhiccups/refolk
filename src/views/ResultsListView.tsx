@@ -5,6 +5,7 @@ import { Controller } from "../controllers/Controller";
 import { ResultsList } from "../models/ResultsList";
 
 import { WordView } from "./WordView";
+import { DictionaryDescription } from "./DictionaryDescription";
 
 export class ResultsListView {
 	controller: Controller;
@@ -16,14 +17,17 @@ export class ResultsListView {
 	}
 
 	view() {
-		return (
-			<div id="results">
-				{this.results.result.map((r, i) => {
-						return (
-							<WordView key={r.id} controller={this.controller} id={i} word={r}/>
-						)
-					})}
-			</div>
-		)
+		if(this.results.result.length > 0) {
+			return (
+				<div id="results">
+					{this.results.result.map((r, i) => {
+							return (
+								<WordView key={r.id} controller={this.controller} id={i} word={r}/>
+							)
+						})}
+				</div>
+			)
+		}
+		return <DictionaryDescription/>
 	}
 }
