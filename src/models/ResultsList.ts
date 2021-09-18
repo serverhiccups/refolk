@@ -44,7 +44,8 @@ export class ResultsList {
 		}
 		let searchParameters = {
 			'q': sTerm,
-			'query_by': 'key, translation, definition',
+			'query_by': 'key, translation, inflection, definition, idioms, idiomsTranslation',
+			'query_by_weights': '10, 8, 6, 6, 5, 5',
 			'limit_hits': 50,
 			'per_page': 50,
 			'filter_by': (realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": "") + (f.has("en") ? "lang:=en" : f.has("sv") ? "lang:=sv" : "")

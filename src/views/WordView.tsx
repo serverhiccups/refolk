@@ -93,7 +93,7 @@ export class WordView {
 							<span class="title">Idioms</span>
 							<ul>
 								{this.word.idioms.map((i, j) => {
-									return <li><span>{i.text}</span>&nbsp;<span>[{i.translation}]</span></li>
+									return <li><span>{i}</span>{!!this.word.idiomsTranslation[j] && (<span>&nbsp;[{this.word.idiomsTranslation[j]}]</span>)}</li>
 								})}
 							</ul>
 						</div>
