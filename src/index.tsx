@@ -40,7 +40,7 @@ class App {
 	view() {
 		return (
 			<div id="app">
-				<NavBar/>
+				<NavBar controller={this.controller}/>
 				<div id="dictionary">
 					<SearchView controller={this.controller}/>
 					<ResultsListView controller={this.controller} results={this.results}/>
@@ -57,7 +57,7 @@ let a = new App({
 	protocol: "http"
 }, "123456");
 
-let c = new About();
+let c = new About(a.controller);
 
 m.route(document.body, "/search", {
 	"/search": a,

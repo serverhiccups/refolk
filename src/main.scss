@@ -27,7 +27,8 @@ $word-colour: #f3f3f3;
 }
 
 #app > div {
-	width: $column-width;
+	max-width: $column-width;
+	width: calc(100vw - 2rem);
 }
 
 .word {
@@ -128,15 +129,26 @@ nav {
 	flex-direction: row;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
+	& > * {
+		border: 1px black solid;
+		border-radius: .25rem;
+	}
+	& > #search-input {
+		flex-grow: 1;
+		height: 1.5rem;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		padding-left: .25rem;
+		padding-right: .25rem;
+	}
+
+	& > #search-submit {
+		flex-grow: 0;
+		height: 1.5rem;
+		background: $secondary-colour;
+	}
 }
 
-#search-input {
-	flex-grow: 1;
-}
-
-#search-submit {
-	flex-grow: 0;
-}
 
 .def-word {
 	color: black;
@@ -204,4 +216,21 @@ code {
 	padding-left: .125rem;
 	padding-right: .125rem;
 	border-radius: .125rem;
+}
+
+#home-button {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+nav > a {
+	color: black;
+	&:visited {
+		color: black;
+	}
+}
+
+footer {
+	@include display-font();
+	margin-bottom: .5rem;
 }
