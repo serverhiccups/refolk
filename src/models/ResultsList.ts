@@ -21,6 +21,8 @@ export class ResultsList {
 			//@ts-ignore
 			this.filterNames.add("#" + v.shortcode);
 		}
+		this.filterNames.add("#en");
+		this.filterNames.add("#sv")
 	}
 
 	async search(term: string) {
@@ -28,7 +30,6 @@ export class ResultsList {
 		let f: Set<string> = new Set();
 		sTerm = sTerm.split(" ").map((m: string) => {
 			if(this.filterNames.has(m)) {
-				console.log(m);
 				f.add(m.slice(1));
 				return ""
 			}
@@ -46,7 +47,7 @@ export class ResultsList {
 			'query_by': 'key, translation, definition',
 			'limit_hits': 50,
 			'per_page': 50,
-			'filter_by': realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": undefined
+			'filter_by': (realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": "") + (f.has("en") ? "lang:=en" : f.has("sv") ? "lang:=sv" : "")
 		}
 		this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
 		m.redraw();
