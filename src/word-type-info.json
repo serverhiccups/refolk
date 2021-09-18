@@ -1,86 +1,86 @@
 {
-   "pp": {
-      "shortcode": "P",
-      "name": "Preposition"
-   },
    "nn": {
       "shortcode": "N",
       "name": "Noun"
-   },
-   "ab": {
-      "shortcode": "Av",
-      "name": "Adverb"
-   },
-   "jj": {
-      "shortcode": "A",
-      "name": "Adjective"
-   },
-   "abbrev": {
-      "shortcode": "Ab",
-      "name": "Abbreviation"
-   },
-   "pn": {
-      "shortcode": "Pr",
-      "name": "Pronoun"
    },
    "vb": {
       "shortcode": "V",
       "name": "Verb"
    },
-   "in": {
-      "shortcode": "I",
-      "name": "Interjection"
+   "jj": {
+      "shortcode": "A",
+      "name": "Adjective"
    },
-   "rg": {
-      "shortcode": "#",
-      "name": "Number"
+   "ab": {
+      "shortcode": "Av",
+      "name": "Adverb"
    },
-   "prefix": {
-      "shortcode": "Pf",
-      "name": "Prefix"
-   },
-   "kn": {
-      "shortcode": "Cj",
-      "name": "Conjunction"
-   },
-   "ie": {
-      "shortcode": "Im",
-      "name": "Infinitive Marker"
+   "abbrev": {
+      "shortcode": "Ab",
+      "name": "Abbreviation"
    },
    "article": {
       "shortcode": "Ar",
       "name": "Article"
    },
-   "pm": {
-      "shortcode": "pN",
-      "name": "Proper Noun"
-   },
-   "suffix": {
-      "shortcode": "Sf",
-      "name": "Suffix"
-   },
-   "hp": {
-      "shortcode": "rP",
-      "name": "Relative Pronoun"
-   },
-   "ps": {
-      "shortcode": "Ps",
-      "name": "Posessive"
-   },
-   "sn": {
-      "shortcode": "Sj",
-      "name": "Subjunction"
-   },
-   "pc": {
-      "shortcode": "Pp",
-      "name": "Participle"
+   "kn": {
+      "shortcode": "Cj",
+      "name": "Conjunction"
    },
    "hjälpverb": {
       "shortcode": "H",
       "name": "Helper Verb"
    },
+   "ie": {
+      "shortcode": "Im",
+      "name": "Infinitive Marker"
+   },
+   "in": {
+      "shortcode": "I",
+      "name": "Interjection"
+   },
    "latin": {
       "shortcode": "L",
       "name": "Latin"
+   },
+   "rg": {
+      "shortcode": "#",
+      "name": "Number"
+   },
+   "pc": {
+      "shortcode": "Pp",
+      "name": "Participle"
+   },
+   "prefix": {
+      "shortcode": "Pf",
+      "name": "Prefix"
+   },
+   "pp": {
+      "shortcode": "P",
+      "name": "Preposition"
+   },
+   "pn": {
+      "shortcode": "Pr",
+      "name": "Pronoun"
+   },
+   "pm": {
+      "shortcode": "pN",
+      "name": "Proper Noun"
+   },
+   "ps": {
+      "shortcode": "Ps",
+      "name": "Posessive"
+   },
+   "hp": {
+      "shortcode": "rP",
+      "name": "Relative Pronoun"
+   },
+   "sn": {
+      "shortcode": "Sj",
+      "name": "Subjunction"
+   },
+   "suffix": {
+      "shortcode": "Sf",
+      "name": "Suffix"
    }
 }

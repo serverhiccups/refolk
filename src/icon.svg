@@ -1,0 +1,26 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+	<defs>
+		<style>
+            .white {
+                fill: white;
+            }
+            .ring {
+                stroke: #000;
+                stroke-width: 9px;
+                fill: rgba(0, 0, 0, 0);
+            }
+            div.gradient {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-image: conic-gradient(from 90deg, #978EC4 0deg, #63B32F 120deg, #EA571D 240deg, #978EC4 360deg);
+            }
+        </style>
+	</defs>
+    <foreignObject x="0" y="0" width="200" height="200">
+        <div class="gradient" xmlns="http://www.w3.org/1999/xhtml" />
+    </foreignObject>
+	<circle class="white" cx="100" cy="100" r="50"/>
+	<circle class="ring" cx="100" cy="100" r="45.5"/>
+</svg>

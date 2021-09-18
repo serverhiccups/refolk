@@ -91,12 +91,14 @@ $word-colour: #f3f3f3;
 	padding: .25rem;
 }
 
-.word-translations {
+.word-ti {
 	grid-area: trans;
 	background-color: #f8f8f8;
 	padding: .25rem;
-	& ul {
-		padding-left: 1rem;
+	& > .word-translations, & > .word-inflections {
+		& ul {
+			padding-left: 1rem;
+		}
 	}
 }
 
@@ -120,6 +122,11 @@ nav {
 	align-items: center;
 	& * {
 		margin-left: 1rem;
+	}
+
+	& > img {
+		height: 1.5rem;
+		width: 1.5rem;
 	}
 }
 
@@ -157,7 +164,7 @@ nav {
 	}
 }
 
-.word-translations {
+.word-translations, .word-inflections {
 	& .title {
 		font-weight: 700;
 	}
@@ -171,7 +178,7 @@ nav {
 	}
 }
 
-.word-definition {
+.word-definition, .word-explanation {
 	& .title {
 		font-weight: 700;
 	}
@@ -216,6 +223,7 @@ code {
 	padding-left: .125rem;
 	padding-right: .125rem;
 	border-radius: .125rem;
+	white-space: nowrap;
 }
 
 #home-button {
@@ -233,4 +241,27 @@ nav > a {
 footer {
 	@include display-font();
 	margin-bottom: .5rem;
+}
+
+#dictionary-description {
+	& > img {
+		height: 8rem;
+		width: 8rem;
+		float: right;
+		margin: 2rem;
+	}
+}
+.word-idioms {
+	padding-top: .25rem;
+	& .title {
+		font-weight: 700;
+	}
+	& ul {
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+		& > li > span:nth-child(2) {
+			width: 100%;
+			font-style: italic;
+		}
+	}
 }

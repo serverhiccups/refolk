@@ -12,6 +12,9 @@ export class NavBar {
     view() {
         return (
             <nav>
+                <img src={new URL('../icon.svg', 
+                //@ts-ignore
+                import.meta.url)} alt="logo" />
                 <a id="home-button" role="link" onclick={(e) => {
                     console.log(m.route.get());
                     if(m.route.get().startsWith("/search/")) {
