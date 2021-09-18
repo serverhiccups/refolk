@@ -55,7 +55,7 @@ let a = new App({
 	host: "localhost",
 	port: "8108",
 	protocol: "http"
-}, "123456");
+}, String(process.env.TYPESENSE_KEY));
 
 let c = new About(a.controller);
 
