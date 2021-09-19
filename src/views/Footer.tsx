@@ -1,6 +1,6 @@
 import m from "mithril";
 
-export class BottomBar {
+export class Footer {
     constructor() {}
     view() {
         return (

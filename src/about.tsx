@@ -1,6 +1,6 @@
 import m from "mithril";
 import { NavBar } from "./views/NavBar";
-import { BottomBar } from "./views/BottomBar";
+import { Footer } from "./views/Footer";
 
 import { Controller } from "./controllers/Controller";
 
@@ -38,7 +38,7 @@ export class About {
                     <h3>What license do you use?</h3>
                     <p>This project and website are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA 4.0</a>.</p>
                 </div>
-                <BottomBar/>
+                <Footer/>
             </div>
         )
     }

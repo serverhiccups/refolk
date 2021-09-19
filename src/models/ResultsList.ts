@@ -8,6 +8,7 @@ export class ResultsList {
 
 	currentResultTerm: string;
 	result: Array<any>;
+	isLoading: boolean;
 
 	filterNames: Set<string>;
 
@@ -17,6 +18,7 @@ export class ResultsList {
 		this.client = client;
 		this.result = [];
 		this.currentResultTerm = "";
+		this.isLoading = false;
 		this.filterNames = new Set();
 		this.typeinfo = new Object(info);
 		for (const v of Object.values(this.typeinfo)) {
@@ -28,6 +30,7 @@ export class ResultsList {
 	}
 
 	async search(term: string) {
+		this.isLoading = true;
 		let sTerm = term.substring(0, 50).trim();
 		this.currentResultTerm = term
 		let f: Set<string> = new Set();
@@ -54,6 +57,7 @@ export class ResultsList {
 			'filter_by': (realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": "") + (f.has("en") ? "lang:=en" : f.has("sv") ? "lang:=sv" : "")
 		}
 		this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
+		this.isLoading = false;
 		m.redraw();
 	}
 

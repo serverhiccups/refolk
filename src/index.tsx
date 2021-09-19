@@ -8,7 +8,7 @@ import { ResultsList } from "./models/ResultsList";
 import { SearchView } from "./views/SearchView";
 import { ResultsListView } from "./views/ResultsListView";
 import { NavBar } from "./views/NavBar";
-import { BottomBar } from "./views/BottomBar";
+import { Footer } from "./views/Footer";
 
 import { About } from "./about";
 
@@ -52,7 +52,7 @@ class App {
 					<SearchView controller={this.controller}/>
 					<ResultsListView controller={this.controller} results={this.results}/>
 				</div>
-				<BottomBar/>
+				<Footer/>
 			</div>
 		)
 	}
