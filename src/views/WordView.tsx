@@ -69,6 +69,7 @@ export class WordView {
 							<div class="title">Explanation</div>
 							<ul>
 							{Object.values(this.word.explanation).map((t, i) => {
+								if(!t) return;
 								if((this.word.lang == "sv") != (i == 0)) {
 									return (
 										<li class="swe-bullet">{t}</li>

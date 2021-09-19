@@ -52,9 +52,9 @@ class App {
 }
 
 let a = new App({
-	host: "localhost",
-	port: "8108",
-	protocol: "http"
+	host: String(process.env.TYPESENSE_HOST),
+	port: String(process.env.TYPESENSE_PORT),
+	protocol: String(process.env.TYPESENSE_PROTOCOL)
 }, String(process.env.TYPESENSE_KEY));
 
 let c = new About(a.controller);
