@@ -10,7 +10,7 @@ export class SearchView {
 	}
 
 	searchDetector(e) {
-		if(e.code == 'Enter') this.controller.search();
+		if(e.code == 'Enter') this.controller.searchFromBox();
 	}
 
 	view() {
@@ -22,7 +22,9 @@ export class SearchView {
 				}} onkeyup={(e) => this.searchDetector(e)} value={this.controller.searchState} oninput={(e) => {
 					this.controller.updateSearchState(e.target.value);
 				}}/>
-				<input id="search-submit" type="submit" name="searchSubmit" value="Search" onclick={(e) => this.controller.search()}/>
+				<input id="search-submit" type="submit" name="searchSubmit" value="Search" onclick={(e) => {
+					this.controller.searchFromBox()
+				}}/>
 			</div>
 		)
 	}

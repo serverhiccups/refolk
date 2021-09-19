@@ -20,6 +20,7 @@ export class ResultsListView {
 		if(this.results.result.length > 0) {
 			return (
 				<div id="results">
+					<span id="title">Showing results for "<span id="word">{this.results.currentResultTerm}</span>"</span>
 					{this.results.result.map((r, i) => {
 							return (
 								<WordView key={r.id} controller={this.controller} id={i} word={r}/>

@@ -16,14 +16,11 @@ export class NavBar {
                 //@ts-ignore
                 import.meta.url)} alt="logo" />
                 <a id="home-button" role="link" onclick={(e) => {
-                    if(m.route.get().startsWith("/search/")) {
-                        this.controller.updateSearchState("");
-                        this.controller.search();
-                    } else {
-                        m.route.set("/search/:search", {search: ""})
-                    }
+                    this.controller.search("", false, true)
                 }}>Refolk!</a>
-                <a href="#!/about">about</a>
+                <a onclick={(e) => {
+                    m.route.set("/about")
+                }}>about</a>
             </nav>
         )
     }

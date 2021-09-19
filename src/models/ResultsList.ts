@@ -6,6 +6,7 @@ import { SearchClient as TypesenseSearchClient } from "typesense";
 export class ResultsList {
 	client: TypesenseSearchClient;
 
+	currentResultTerm: string;
 	result: Array<any>;
 
 	filterNames: Set<string>;
@@ -15,6 +16,7 @@ export class ResultsList {
 	constructor(client: TypesenseSearchClient) {
 		this.client = client;
 		this.result = [];
+		this.currentResultTerm = "";
 		this.filterNames = new Set();
 		this.typeinfo = new Object(info);
 		for (const v of Object.values(this.typeinfo)) {
@@ -27,6 +29,7 @@ export class ResultsList {
 
 	async search(term: string) {
 		let sTerm = term.substring(0, 50).trim();
+		this.currentResultTerm = term
 		let f: Set<string> = new Set();
 		sTerm = sTerm.split(" ").map((m: string) => {
 			if(this.filterNames.has(m)) {
@@ -56,6 +59,7 @@ export class ResultsList {
 
 	async clear() {
 		this.result = []
+		this.currentResultTerm = "";
 		m.redraw()
 	}
 

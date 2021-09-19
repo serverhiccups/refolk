@@ -27,14 +27,21 @@ class App {
 		this.results = new ResultsList(this.client);
 
 		this.controller = new Controller(this.results);
+
+		window.onpopstate = (e) => {
+			this.controller.search((e.state?.search != null && e.state?.search != undefined) ? e.state.search : "", true, false);
+		}
 	}
 
-	oninit(props) {
+	oninit() {
 		if(m.route.param()?.search) {
-			this.controller.updateSearchState(m.route.param().search);
-			this.controller.search();
-			return;
-		} 
+			this.controller.search(m.route.param().search, true, false);
+		}
+		this.controller.setDocumentTitle();
+	}
+
+	onupdate() {
+		this.controller.setDocumentTitle();
 	}
 
 	view() {
