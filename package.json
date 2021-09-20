@@ -1,6 +1,6 @@
 {
   "name": "refolk",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A more modern interface to the excellent Folket's Lexikon",
   "source": "src/index.html",
   "scripts": {
