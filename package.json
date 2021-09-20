@@ -19,13 +19,17 @@
   },
   "homepage": "https://github.com/serverhiccups/refolk#readme",
   "dependencies": {
+    "canvas-confetti": "^1.4.0",
     "mithril": "^2.0.4",
+    "node-polyglot": "^2.4.2",
     "parcel": "^2.0.0-rc.0",
     "typesense": "^0.14.0"
   },
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0",
     "@parcel/transformer-sass": "^2.0.0-rc.0",
-    "@types/mithril": "^2.0.8"
+    "@types/canvas-confetti": "^1.4.2",
+    "@types/mithril": "^2.0.8",
+    "@types/node-polyglot": "^2.4.2"
   }
 }

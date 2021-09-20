@@ -20,7 +20,10 @@ export class NavBar {
                 }}>Refolk!</a>
                 <a onclick={(e) => {
                     m.route.set("/about")
-                }}>about</a>
+                }}>{this.controller.polyglot.t("nav.about")}</a>
+                <a onclick={(e) => {
+                    m.route.set("/settings")
+                }}>{this.controller.polyglot.t("nav.settings")}</a>
             </nav>
         )
     }

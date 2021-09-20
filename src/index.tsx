@@ -4,6 +4,7 @@ const Typesense = require("typesense");
 import { Controller } from "./controllers/Controller";
 
 import { ResultsList } from "./models/ResultsList";
+import { SettingsModel } from "./models/SettingsModel";
 
 import { SearchView } from "./views/SearchView";
 import { ResultsListView } from "./views/ResultsListView";
@@ -11,10 +12,12 @@ import { NavBar } from "./views/NavBar";
 import { Footer } from "./views/Footer";
 
 import { About } from "./about";
+import { Settings } from "./settings";
 
 class App {
 	client: any;
 	results: ResultsList;
+	settings: SettingsModel;
 	controller: Controller;
 
 	constructor(node: {host: string, port: string, protocol: string}, apiKey: string) {
@@ -26,7 +29,9 @@ class App {
 
 		this.results = new ResultsList(this.client);
 
-		this.controller = new Controller(this.results);
+		this.settings = new SettingsModel();
+
+		this.controller = new Controller(this.results, this.settings);
 
 		window.onpopstate = (e) => {
 			this.controller.search((e.state?.search != null && e.state?.search != undefined) ? e.state.search : "", true, false);
@@ -66,8 +71,11 @@ let a = new App({
 
 let c = new About(a.controller);
 
+let s = new Settings(a.controller);
+
 m.route(document.body, "/search", {
 	"/search": a,
 	"/search/:search": a,
-	"/about": c
+	"/about": c,
+	"/settings": s
 })

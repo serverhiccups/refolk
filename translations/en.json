@@ -1,0 +1,35 @@
+{
+    "home": {
+        "welcome": "Welcome to Refolk!",
+        "search": "Search to get started",
+        "description": "Refolk! is a Swedish-English and English-Swedish dictionary.",
+        "filters": "You can refine your search by filtering.<br/>Here's a list of filters that you can add in addition to your search term for reference. Each filter must be preceded by a <code>#</code>. For example, to search for the verb <i>to book</i>, type <code>book #V</code>.",
+        "data": "The dictionary data has been sourced from the excellent <a href=\"https://folkets-lexikon.csc.kth.se/folkets/folkets.en.html\">Folkets Lexikon</a> project.",
+        "switch": "För att byta till svenska gå till ",
+        "switchbutton": "inställingarna"
+    },
+    "about": {},
+    "nav": {
+        "about": "about",
+        "settings": "settings"
+    },
+    "settings": {
+        "settings": "Settings",
+        "display": "Display",
+        "language": "Language",
+        "fun": "Fun",
+        "party": "Party?"
+    },
+    "word": {
+        "definition": "Definition",
+        "explanation": "Explanation",
+        "phonetic": "Phonetic",
+        "idioms": "Idioms",
+        "translations": "Translations",
+        "inflections": "Inflections"
+    },
+    "search": {
+        "here": "Type here!",
+        "search": "Search"
+    }
+}

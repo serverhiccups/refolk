@@ -29,6 +29,6 @@ export class ResultsListView {
 				</div>
 			)
 		}
-		return <DictionaryDescription/>
+		return <DictionaryDescription controller={this.controller}/>
 	}
 }

@@ -48,7 +48,7 @@ export class WordView {
 				<div class="word-main">
 					{this.word.definition?.length > 0 &&
 						<div class="word-definition">
-							<div class="title">Definition</div>
+							<div class="title">{this.controller.polyglot.t("word.definition")}</div>
 							<ul>
 							{this.word.definition.map((t, i) => {
 								if((this.word.lang == "sv") != (i == 1)) {
@@ -66,7 +66,7 @@ export class WordView {
 					}
 					{!!this.word.explanation && (
 						<div class="word-explanation">
-							<div class="title">Explanation</div>
+							<div class="title">{this.controller.polyglot.t("word.explanation")}</div>
 							<ul>
 							{Object.values(this.word.explanation).map((t, i) => {
 								if(!t) return;
@@ -85,13 +85,13 @@ export class WordView {
 					)}
 					{!!this.word.phonetic && (
 						<div class="word-phonetic">
-							<span class="title">Phonetic&nbsp;</span>
+							<span class="title">{this.controller.polyglot.t("word.phonetic")}&nbsp;</span>
 							<span>[{this.word.phonetic}]</span>
 						</div>
 					)}
 					{this.word.idioms.length > 0 && (
 						<div class="word-idioms">
-							<span class="title">Idioms</span>
+							<span class="title">{this.controller.polyglot.t("word.idioms")}</span>
 							<ul>
 								{this.word.idioms.map((i, j) => {
 									return <li><span>{i}</span>{!!this.word.idiomsTranslation[j] && (<span>&nbsp;[{this.word.idiomsTranslation[j]}]</span>)}</li>
@@ -103,7 +103,7 @@ export class WordView {
 				<div class="word-ti">
 				{this.word.translation?.length > 0 &&
 					<div class="word-translations">
-						<span class="title">Translations</span>
+						<span class="title">{this.controller.polyglot.t("word.translations")}</span>
 						<ul>
 						{this.word.translation.map((t, i) => {
 							return (
@@ -115,7 +115,7 @@ export class WordView {
 				}
 				{this.word.inflection.length > 0 && (
 					<div class="word-inflections">
-						<span class="title">Inflections</span>
+						<span class="title">{this.controller.polyglot.t("word.inflections")}</span>
 						<ul>
 						{this.word.inflection.map((i) => {
 							return (
