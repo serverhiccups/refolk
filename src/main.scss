@@ -27,7 +27,7 @@ $word-colour: #f3f3f3;
 	@include body-font();
 }
 
-#app > div {
+#app > div:not(#error-list) {
 	max-width: $column-width;
 	width: calc(100% - 2rem);
 }
@@ -96,7 +96,7 @@ $word-colour: #f3f3f3;
 	grid-area: trans;
 	background-color: #f8f8f8;
 	padding: .25rem;
-	& > .word-translations, & > .word-inflections {
+	& > .word-translations, & > .word-inflections, &  > .word-synonyms {
 		& ul {
 			padding-left: 1rem;
 		}
@@ -154,6 +154,7 @@ nav {
 		flex-grow: 0;
 		height: 1.5rem;
 		background: $secondary-colour;
+		color: black;
 	}
 }
 
@@ -165,7 +166,7 @@ nav {
 	}
 }
 
-.word-translations, .word-inflections {
+.word-translations, .word-inflections, .word-synonyms {
 	& .title {
 		font-weight: 700;
 	}
@@ -277,4 +278,38 @@ footer {
 	text-decoration: underline;
 	color: black;
 	cursor: pointer;
+}
+
+#error-list{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	max-width: 15rem;
+	justify-content: flex-end;
+	width: 100%;
+	flex-direction: column;
+	margin-left: .25rem;
+	margin-right: .25rem;
+	box-sizing: border-box;
+	& > .error-message {
+		box-sizing: inherit;
+		background: pink;
+		width: 100%;
+		border-radius: .25rem;
+		border: 1px solid #333;
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+		padding: .25rem;
+		& > .name {
+			font-weight: 700;
+			display: block;
+		}
+		& > .dismiss {
+			float: right;
+		}
+		& > .message {
+			font-size: .8rem;
+		}
+	}
 }

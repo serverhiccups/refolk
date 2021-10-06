@@ -125,6 +125,20 @@ export class WordView {
 						</ul>
 					</div>
 				)}
+				{this.word.synonyms?.length > 0 && (
+					<div class="word-synonyms">
+						<span class="title">
+							Synonyms
+						</span>
+						<ul>
+						{this.word.synonyms.map((s) => {
+							return (
+								<li><span>{s}</span></li>
+							)
+						})}
+						</ul>
+					</div>
+				)}
 				</div>
 			</div>
 		)

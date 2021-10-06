@@ -30,35 +30,41 @@ export class ResultsList {
 	}
 
 	async search(term: string) {
-		this.isLoading = true;
-		let sTerm = term.substring(0, 50).trim();
-		this.currentResultTerm = term
-		let f: Set<string> = new Set();
-		sTerm = sTerm.split(" ").map((m: string) => {
-			if(this.filterNames.has(m)) {
-				f.add(m.slice(1));
-				return ""
+		try {
+			this.isLoading = true;
+			let sTerm = term.substring(0, 50).trim();
+			this.currentResultTerm = term
+			let f: Set<string> = new Set();
+			sTerm = sTerm.split(" ").map((m: string) => {
+				if(this.filterNames.has(m)) {
+					f.add(m.slice(1));
+					return ""
+				}
+				return m;
+			}).join("").trim();
+			let realParameterNames = [];
+			//@ts-ignore
+			for (const [k, v] of Object.entries(this.typeinfo)) {
+				if(f.has(v.shortcode)) {
+					realParameterNames.push(k);
+				}
 			}
-			return m;
-		}).join("").trim();
-		let realParameterNames = [];
-		//@ts-ignore
-		for (const [k, v] of Object.entries(this.typeinfo)) {
-			if(f.has(v.shortcode)) {
-				realParameterNames.push(k);
+			let searchParameters = {
+				'q': sTerm,
+				'query_by': 'key, translation, inflection, definition, synonyms, idioms, idiomsTranslation',
+				'query_by_weights': '10, 8, 6, 6, 6, 4, 4',
+				'limit_hits': 50,
+				'per_page': 50,
+				'filter_by': (realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": "") + (f.has("en") ? "lang:=en" : f.has("sv") ? "lang:=sv" : "")
 			}
+			this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
+			this.isLoading = false;
+			m.redraw();
+		} catch (e) {
+			this.isLoading = false;
+			this.clear();
+			throw e;
 		}
-		let searchParameters = {
-			'q': sTerm,
-			'query_by': 'key, translation, inflection, definition, idioms, idiomsTranslation',
-			'query_by_weights': '10, 8, 6, 6, 5, 5',
-			'limit_hits': 50,
-			'per_page': 50,
-			'filter_by': (realParameterNames.length > 0 ? "type:=[" + realParameterNames.join(", ") + "]": "") + (f.has("en") ? "lang:=en" : f.has("sv") ? "lang:=sv" : "")
-		}
-		this.result = this.parseResults(await this.client.collections('refolk').documents().search(searchParameters));
-		this.isLoading = false;
-		m.redraw();
 	}
 
 	async clear() {

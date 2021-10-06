@@ -1,6 +1,7 @@
 import m from "mithril";
 import { NavBar } from "./views/NavBar";
 import { Footer } from "./views/Footer";
+import { ErrorView } from "./views/ErrorView";
 
 import { Controller } from "./controllers/Controller";
 
@@ -39,6 +40,7 @@ export class About {
                     <p>This project and website are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA 4.0</a>.</p>
                 </div>
                 <Footer/>
+				<ErrorView controller={this.controller}/>
             </div>
         )
     }

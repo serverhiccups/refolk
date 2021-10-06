@@ -4,6 +4,7 @@ import { Controller } from "./controllers/Controller";
 
 import { NavBar } from "./views/NavBar";
 import { Footer } from "./views/Footer";
+import { ErrorView } from "./views/ErrorView";
 
 export class Settings {
     controller: Controller;
@@ -48,6 +49,7 @@ export class Settings {
                     </ul>
                 </div>
                 <Footer/>
+				<ErrorView controller={this.controller}/>
             </div>
         )
     }

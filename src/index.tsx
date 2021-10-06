@@ -5,9 +5,11 @@ import { Controller } from "./controllers/Controller";
 
 import { ResultsList } from "./models/ResultsList";
 import { SettingsModel } from "./models/SettingsModel";
+import { Errors } from "./models/Errors";
 
 import { SearchView } from "./views/SearchView";
 import { ResultsListView } from "./views/ResultsListView";
+import { ErrorView } from "./views/ErrorView";
 import { NavBar } from "./views/NavBar";
 import { Footer } from "./views/Footer";
 
@@ -18,20 +20,23 @@ class App {
 	client: any;
 	results: ResultsList;
 	settings: SettingsModel;
+	errors: Errors;
 	controller: Controller;
 
 	constructor(node: {host: string, port: string, protocol: string}, apiKey: string) {
 		this.client = new Typesense.Client({
 			'nodes': [node],
 			'apiKey': apiKey,
-			'connectionTimeoutSeconds': 2
+			'connectionTimeoutSeconds': 10
 		})
 
 		this.results = new ResultsList(this.client);
 
 		this.settings = new SettingsModel();
 
-		this.controller = new Controller(this.results, this.settings);
+		this.errors = new Errors();
+
+		this.controller = new Controller(this.results, this.settings, this.errors);
 
 		window.onpopstate = (e) => {
 			this.controller.search((e.state?.search != null && e.state?.search != undefined) ? e.state.search : "", true, false);
@@ -58,6 +63,7 @@ class App {
 					<ResultsListView controller={this.controller} results={this.results}/>
 				</div>
 				<Footer/>
+				<ErrorView controller={this.controller}/>
 			</div>
 		)
 	}

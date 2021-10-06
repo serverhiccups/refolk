@@ -8,6 +8,7 @@ import { FunController } from "./FunController";
 
 import { ResultsList } from "../models/ResultsList";
 import { SettingsModel, SettingsObject } from "../models/SettingsModel";
+import { Errors } from "../models/Errors";
 
 export class Controller {
 	fun: FunController;
@@ -15,11 +16,13 @@ export class Controller {
 	searchState: string;
 	results: ResultsList;
 	settings: SettingsModel;
+	errors: Errors;
 	polyglot: Polyglot;
 
-	constructor(results: ResultsList, settings: SettingsModel) {
+	constructor(results: ResultsList, settings: SettingsModel, errors: Errors) {
 		this.results = results;
 		this.settings = settings;
+		this.errors = errors;
 		this.searchState = "";
 		this.polyglot = new Polyglot({
 			locale: this.settings.settings.language
@@ -58,7 +61,12 @@ export class Controller {
 			this.results.clear();
 		} else {
 			if(this.results.isLoading) return;
-			await this.results.search(term);
+			try {
+				await this.results.search(term);
+			} catch (e) {
+				this.errors.add(e);
+				return;
+			}
 		}
 		if(!keepSearchState) {
 			this.updateSearchState("");
@@ -70,7 +78,7 @@ export class Controller {
 
 	/**
 	 * Match the route to the current search state
-	* @param replace Whether or not to replace the current history entry.
+	 * @param replace Whether or not to replace the current history entry.
 	 */
 	updateRoute(replace: boolean) {
 		m.route.set("/search/:search", {
